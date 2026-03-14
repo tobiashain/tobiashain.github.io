@@ -1,5 +1,5 @@
-import Hero from "./Hero";
-import Career from "./Career";
+import Hero from "./hero/Hero";
+import Career from "./career/Career";
 import Skills from "./skills/Skills";
 import Projects from "./Projects";
 import Footer from "./Footer";
