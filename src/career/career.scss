@@ -1,0 +1,63 @@
+.career {
+  padding-top: 5rem;
+
+  .table {
+    display: grid;
+    position: relative;
+    grid-template: repeat(5, 1fr) / 1fr;
+    border: 1px black solid;
+    box-sizing: border-box;
+    border-radius: 1rem;
+  }
+
+  .row {
+    height: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    align-items: center;
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+  }
+
+  img {
+    object-fit: cover;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .description {
+    line-height: 1.2em;
+  }
+
+  .date,
+  .type {
+    color: grey;
+    font-size: 0.8rem;
+  }
+
+  .activity {
+    font-size: 1.2rem;
+  }
+
+  .context {
+  }
+
+  .line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    left: 50px;
+    transform: translateX(-50%);
+    background-color: black;
+  }
+}
