@@ -1,3 +1,4 @@
+import Header from "./header/Header";
 import Hero from "./hero/Hero";
 import Career from "./career/Career";
 import Skills from "./skills/Skills";
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <main>
+        <Header />
         <Hero />
         <Career />
         <Skills />
