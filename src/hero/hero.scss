@@ -1,53 +1,103 @@
 .hero {
-  height: 60svh;
+  min-height: 70svh;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #1f2937, #0f172a);
 
   .content {
-    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: auto;
-    height: 100%;
+    gap: 1.5rem;
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
   }
 
   .introduction {
     display: flex;
     align-items: center;
+    gap: 1rem;
   }
 
   .image {
     width: 100px;
+    height: 100px;
   }
 
   img {
-    width: 100%;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    border: 2px solid var(--border);
+  }
+
+  .name {
+    font-size: 1.5rem;
   }
 
   .title {
-    font-size: 6rem;
+    width: 100%;
+    font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 800;
     text-align: center;
+    line-height: 0.9em;
+
+    background: linear-gradient(90deg, #ffffff 20%, #8da5c5 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    :nth-child(1) {
+      transform: translateX(80px) skewX(-8deg);
+      letter-spacing: 0.05em;
+    }
+
+    :nth-child(2) {
+      transform: translate(-80px, -10px) skewX(-8deg);
+      letter-spacing: 0.02em;
+      font-weight: 700;
+    }
+  }
+
+  .line {
+    display: block;
   }
 
   .immersive-portfolio {
-    position: absolute;
-    bottom: 0;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .links {
+    display: flex;
+    gap: 0.75rem;
   }
 
   button {
-    background-color: transparent;
-    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 999px;
     height: 40px;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
 
     &.icon {
       width: 40px;
-      border-radius: 50%;
-    }
-
-    &.text {
-      padding: 0 5px;
+      padding: 0;
     }
   }
 }

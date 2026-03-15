@@ -10,7 +10,10 @@ export default function Hero() {
             </div>
             <h1 className="name">Tobias Hain</h1>
           </div>
-          <div className="title">Fullstack Developer</div>
+          <div className="title">
+            <div className="line">FULLSTACK</div>
+            <div className="line">DEVELOPER</div>
+          </div>
           <div className="links">
             <button className="text">Contact me</button>
             <button className="icon">Github</button>
