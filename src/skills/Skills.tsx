@@ -2,20 +2,20 @@ import Chip from "./Chip";
 import "./skills.scss";
 export default function Skills() {
   const skills = [
-    { text: "Javascript", image: "vite.svg" },
-    { text: "Typescript", image: "vite.svg" },
-    { text: "React", image: "vite.svg" },
-    { text: "Nest.js", image: "vite.svg" },
-    { text: "Node.js", image: "vite.svg" },
-    { text: "PHP", image: "vite.svg" },
-    { text: "Tailwind CSS", image: "vite.svg" },
-    { text: "Bootstrap", image: "vite.svg" },
-    { text: "Sass", image: "vite.svg" },
-    { text: "MySQL", image: "vite.svg" },
-    { text: "C#", image: "vite.svg" },
-    { text: "Git", image: "vite.svg" },
-    { text: "Docker", image: "vite.svg" },
-    { text: "Wordpress", image: "vite.svg" },
+    { text: "Javascript", image: "javascript.png" },
+    { text: "Typescript", image: "typescript.png" },
+    { text: "React", image: "react.png" },
+    { text: "Nest.js", image: "nestjs.png" },
+    { text: "Node.js", image: "nodejs.png" },
+    { text: "PHP", image: "php.png" },
+    { text: "Tailwind CSS", image: "tailwindcss.png" },
+    { text: "Bootstrap", image: "bootstrap.png" },
+    { text: "Sass", image: "sass.png" },
+    { text: "MySQL", image: "mysql.png" },
+    { text: "C#", image: "csharp.png" },
+    { text: "Git", image: "git.png" },
+    { text: "Docker", image: "docker.png" },
+    { text: "Wordpress", image: "wordpress.png" },
   ];
   return (
     <>
