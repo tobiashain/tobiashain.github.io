@@ -16,8 +16,9 @@ export default function Hero() {
           </div>
           <div className="links">
             <button className="text">Contact me</button>
-            <button className="icon">Github</button>
-            <button className="icon">TobiOS</button>
+            <button className="icon">
+              <img src="/icons/github.png" alt="" />
+            </button>
           </div>
           <div className="immersive-portfolio">
             Prefer to go beyond the minimal?{" "}

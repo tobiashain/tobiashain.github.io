@@ -1,13 +1,18 @@
 .chip {
   display: flex;
-  flex-grow: 0;
-  padding: 0.25rem 0.75rem;
-  background-color: #e0e0e0;
-  color: #333;
-  font-size: 0.875rem;
-  border-radius: 16px;
-  white-space: nowrap;
   align-items: center;
+  gap: 0.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  transition: 0.2s;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
 
   > img {
     width: 25px;
