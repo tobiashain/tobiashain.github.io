@@ -20,9 +20,12 @@ export default function Skills() {
   return (
     <>
       <div className="skills">
-        {skills.map((skill, index) => {
-          return <Chip key={index} text={skill.text} image={skill.image} />;
-        })}
+        <p>Tech Stack</p>
+        <div className="chips">
+          {skills.map((skill, index) => {
+            return <Chip key={index} text={skill.text} image={skill.image} />;
+          })}
+        </div>
       </div>
     </>
   );
