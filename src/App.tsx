@@ -6,7 +6,7 @@ import Projects from "./projects/Projects";
 import Footer from "./footer/Footer";
 import "./global.scss";
 import { projects } from "./projects";
-import { type Project } from "./projects";
+import CTA from "./cta/Cta";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Career />
         <Skills />
         <Projects projects={projects.slice(0, 4)} />
+        <CTA />
         <Footer />
       </main>
     </>

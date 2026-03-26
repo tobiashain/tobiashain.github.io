@@ -3,7 +3,7 @@ export default function Career() {
   return (
     <>
       <div className="career">
-        <p>Experience</p>
+        <p>Background</p>
         <div className="table">
           <div className="line"></div>
           <div className="row">
