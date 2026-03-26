@@ -4,7 +4,9 @@ export default function CTA() {
   return (
     <section className="cta">
       <div className="inner">
-        <div className="label">Get in touch</div>
+        <div className="label" id="contact">
+          Get in touch
+        </div>
         <h2 className="heading">Let's build something great together.</h2>
         <p className="body">
           Whether you have a project in mind, a role to fill, or just want to

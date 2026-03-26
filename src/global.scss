@@ -8,6 +8,10 @@
   --border: #374151;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: InterVariable, sans-serif;
   background: var(--bg);

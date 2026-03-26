@@ -35,8 +35,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* TobiOS teaser — full-bleed below hero content */}
-      <div className="tobios-teaser">
+      <div className="tobios-teaser" id="tobiOS">
         <div className="teaser-inner">
           <div className="teaser-label">
             You're looking at the minimal version.
@@ -50,7 +49,6 @@ export default function Hero() {
             inside it.
           </p>
 
-          {/* Fake OS window chrome */}
           <div className="os-window">
             <div className="titlebar">
               <div className="titlebar-dots">

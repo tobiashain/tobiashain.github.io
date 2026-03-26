@@ -16,7 +16,7 @@ function App() {
         <Hero />
         <Career />
         <Skills />
-        <Projects projects={projects.slice(0, 4)} />
+        <Projects projects={projects} />
         <CTA />
         <Footer />
       </main>
