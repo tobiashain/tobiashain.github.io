@@ -16,6 +16,9 @@
   font-weight: 700;
   color: var(--text);
   margin-bottom: 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .section-badge {
@@ -136,7 +139,6 @@
     margin-top: 0.15rem;
   }
 
-  // Vertical timeline line through the avatar column
   .line {
     position: absolute;
     top: 0;

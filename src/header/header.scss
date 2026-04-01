@@ -6,11 +6,12 @@ nav {
   align-items: center;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(17, 24, 39, 0.7); // --surface at 70% opacity
+  background: rgba(17, 24, 39, 0.7);
   margin: 0 auto;
-  left: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: clamp(300px, 40%, 500px);
-  transform: translateX(-50%);
   padding: 0.4rem 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--border);

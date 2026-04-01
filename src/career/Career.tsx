@@ -25,7 +25,7 @@ const experience = [
   {
     id: "school",
     image: "https://picsum.photos/seed/school/200",
-    date: "2020 – 2024",
+    date: "2019 – 2024",
     activity: "Handelsakademie Digital Business Kitzbühel",
     type: "Information Technology",
     context:
@@ -53,6 +53,7 @@ const projects = [
     type: "React · SCSS · TypeScript · NestJS",
     context:
       "Designed and built end-to-end — both a minimal mode and an immersive OS-style experience as a showcase of craft and attention to detail.",
+    link: "https://simplefeedback.de/",
   },
   {
     id: "godot",

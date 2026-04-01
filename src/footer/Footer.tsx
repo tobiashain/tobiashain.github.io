@@ -13,13 +13,16 @@ export default function Footer() {
         <a href="#" className="link">
           Home
         </a>
-        <a href="#" className="link">
-          Projects
-        </a>
-        <a href="#" className="link">
+        <a href="#tobiOS" className="link">
           TobiOS
         </a>
-        <a href="#" className="link">
+        <a href="#experience" className="link">
+          Experience
+        </a>
+        <a href="#projects" className="link">
+          Projects
+        </a>
+        <a href="#contact" className="link">
           Contact
         </a>
       </div>
