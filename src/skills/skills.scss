@@ -1,6 +1,4 @@
 .skills {
-  margin-top: 6rem;
-
   p {
     font-size: 2rem;
     font-weight: 700;
@@ -8,8 +6,43 @@
     color: var(--text);
   }
 
+  .skill-group {
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .group-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.85rem;
+  }
+
+  .label-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+    &.advanced {
+      background: var(--accent);
+      box-shadow: 0 0 6px rgba(59, 130, 246, 0.6);
+    }
+
+    &.familiar {
+      background: var(--muted);
+    }
+  }
+
   .chips {
-    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;

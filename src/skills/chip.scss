@@ -17,4 +17,27 @@
   > img {
     width: 25px;
   }
+
+  &.advanced {
+    opacity: 1;
+  }
+
+  &.familiar {
+    opacity: 0.55;
+    border-style: dashed;
+
+    > img {
+      filter: saturate(0.4);
+    }
+
+    &:hover {
+      opacity: 1;
+      border-style: solid;
+      border-color: var(--accent);
+
+      > img {
+        filter: saturate(1);
+      }
+    }
+  }
 }

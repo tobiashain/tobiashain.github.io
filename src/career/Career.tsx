@@ -1,5 +1,5 @@
 import "./career.scss";
-import CareerSection from "./career-section";
+import CareerSection from "./CareerSection";
 
 const experience = [
   {

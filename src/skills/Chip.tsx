@@ -1,10 +1,17 @@
 import "./chip.scss";
 
-const Chip = ({ text, image }: { text: string; image: string }) => {
+const Chip = ({
+  text,
+  image,
+  variant = "advanced",
+}: {
+  text: string;
+  image: string;
+  variant?: "advanced" | "familiar";
+}) => {
   return (
-    <div className="chip">
+    <div className={`chip ${variant}`}>
       {image && <img src={`/icons/${image}`} alt="" />}
-
       <div className="text">{text}</div>
     </div>
   );
