@@ -36,3 +36,11 @@ header {
   top: 0;
   backdrop-filter: blur(10px);
 }
+
+.separator {
+  margin: 4rem 0;
+  border: 1px solid var(--border);
+  width: 100svw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
