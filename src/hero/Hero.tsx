@@ -1,220 +1,62 @@
-import { motion, useMotionValue, useTransform, animate } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { motion, useAnimate } from "motion/react";
+import { useEffect } from "react";
+import { Particles } from "./Particles";
+import { AnimatedWord } from "./AnimatedWord";
+import { Caret } from "./Caret";
+import { OsWindow } from "./OsWindow";
 import "./hero.scss";
 
-// ── Floating particles background ───────────────────────────────────────────
-function Particles() {
-  const particles = Array.from({ length: 56 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2.5 + 0.5,
-    duration: Math.random() * 12 + 8,
-    delay: Math.random() * 6,
-    driftX: (Math.random() - 0.5) * 60,
-    driftY: (Math.random() - 0.5) * 60,
-    opacity: Math.random() * 0.4 + 0.1,
-  }));
-
-  return (
-    <div className="particles" aria-hidden="true">
-      {particles.map((p) => (
-        <motion.span
-          key={p.id}
-          className="particle"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: p.size,
-            height: p.size,
-          }}
-          animate={{
-            x: [0, p.driftX, 0],
-            y: [0, p.driftY, 0],
-            opacity: [p.opacity, p.opacity * 2.5, p.opacity],
-          }}
-          transition={{
-            duration: p.duration,
-            delay: p.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-// ── Letter-by-letter stagger ─────────────────────────────────────────────────
-function AnimatedWord({
-  word,
-  delay = 0,
-  className = "",
-}: {
-  word: string;
-  delay?: number;
-  className?: string;
-}) {
-  return (
-    <span className={className} style={{ display: "inline-block" }}>
-      {word.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          style={{ display: "inline-block" }}
-          initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{
-            duration: 0.5,
-            delay: delay + i * 0.045,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
-
-// ── Blinking terminal caret ──────────────────────────────────────────────────
-function Caret() {
-  const [visible, setVisible] = useState(true);
+export default function Hero() {
+  const [scopeFS, animateFS] = useAnimate();
+  const [scopeDev, animateDev] = useAnimate();
 
   useEffect(() => {
-    const interval = setInterval(() => setVisible((v) => !v), 530);
-    // disappear after 2.8s
-    const timeout = setTimeout(() => clearInterval(interval), 2800);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
+    animateFS(
+      scopeFS.current,
+      { x: 80 },
+      { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
+    ).then(() => {
+      animateFS(
+        scopeFS.current,
+        { y: -10 },
+        {
+          duration: 2.5,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: "easeInOut",
+        },
+      );
+    });
+
+    animateDev(
+      scopeDev.current,
+      { x: -80 },
+      { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
+    ).then(() => {
+      animateDev(
+        scopeDev.current,
+        { y: -10 },
+        {
+          duration: 2.5,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: "easeInOut",
+          delay: 1.25,
+        },
+      );
+    });
   }, []);
 
-  return (
-    <motion.span
-      className="caret"
-      animate={{ opacity: visible ? 1 : 0 }}
-      transition={{ duration: 0 }}
-    />
-  );
-}
-
-// ── OS Window with boot sequence ─────────────────────────────────────────────
-function OsWindow() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [6, -6]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-8, 8]);
-
-  const ref = useRef<HTMLDivElement>(null);
-
-  function onMouseMove(e: React.MouseEvent) {
-    const rect = ref.current!.getBoundingClientRect();
-    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
-    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
-  }
-
-  function onMouseLeave() {
-    animate(mouseX, 0, { duration: 0.5 });
-    animate(mouseY, 0, { duration: 0.5 });
-  }
-
-  const icons = [
-    { icon: "📁", label: "Projects" },
-    { icon: "💼", label: "Experience" },
-    { icon: "⚙️", label: "Tech Stack" },
-    { icon: "📬", label: "Contact" },
-    { icon: "🎮", label: "Games" },
-    { icon: "📝", label: "About me" },
-  ];
-
-  return (
-    <motion.div
-      ref={ref}
-      className="os-window"
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      initial={{ opacity: 0, scale: 0.9, y: 30 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {/* Titlebar */}
-      <motion.div
-        className="titlebar"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.4 }}
-      >
-        <div className="titlebar-dots">
-          <span className="dot red" />
-          <span className="dot yellow" />
-          <span className="dot green" />
-        </div>
-        <div className="titlebar-title">TobiOS — Portfolio.exe</div>
-        <div className="titlebar-spacer" />
-      </motion.div>
-
-      {/* OS body */}
-      <div className="os-body">
-        <div className="desktop-icons">
-          {icons.map(({ icon, label }, i) => (
-            <motion.div
-              className="icon-item"
-              key={label}
-              initial={{ opacity: 0, scale: 0.6, y: 10 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.35 + i * 0.08,
-                duration: 0.4,
-                type: "spring",
-                stiffness: 280,
-                damping: 20,
-              }}
-            >
-              <div className="icon-img">{icon}</div>
-              <span>{label}</span>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Taskbar slides up last */}
-        <motion.div
-          className="taskbar"
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.9, duration: 0.45, ease: "easeOut" }}
-        >
-          <div className="start-btn">⊞</div>
-          <div className="taskbar-items">
-            <div className="taskbar-item active">Portfolio.exe</div>
-            <div className="taskbar-item">Terminal</div>
-            <div className="taskbar-item">Chrome</div>
-          </div>
-          <div className="clock">10:24 AM</div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-}
-
-// ── Main Hero ────────────────────────────────────────────────────────────────
-export default function Hero() {
   return (
     <div className="hero">
       <Particles />
 
       <div className="content">
-        {/* Introduction — scale up from slightly small */}
         <motion.div
           className="introduction"
           initial={{ scale: 0.85, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="image">
             <img src="https://picsum.photos/200" alt="Tobias Hain" />
@@ -228,9 +70,9 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Title — letter stagger + blur + skew preserved */}
         <div className="title">
           <motion.div
+            ref={scopeFS}
             className="line"
             style={{
               skewX: "-8deg",
@@ -238,12 +80,14 @@ export default function Hero() {
               letterSpacing: "0.05em",
             }}
             initial={{ x: 200 }}
-            animate={{ x: 80 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           >
-            <AnimatedWord word="FULLSTACK" delay={0.15} />
+            <span className="line-text">
+              <AnimatedWord word="FULLSTACK" delay={0.15} />
+            </span>
           </motion.div>
+
           <motion.div
+            ref={scopeDev}
             className="line"
             style={{
               skewX: "-8deg",
@@ -253,15 +97,14 @@ export default function Hero() {
               marginTop: "-0.1em",
             }}
             initial={{ x: -200 }}
-            animate={{ x: -80 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <AnimatedWord word="DEVELOPER" delay={0.35} />
+            <span className="line-text">
+              <AnimatedWord word="DEVELOPER" delay={0.35} />
+            </span>
             <Caret />
           </motion.div>
         </div>
 
-        {/* Tagline — rises up */}
         <motion.p
           className="tagline"
           initial={{ y: 30, opacity: 0, filter: "blur(4px)" }}
@@ -291,7 +134,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* TobiOS teaser */}
       <div className="tobios-teaser" id="tobiOS">
         <div className="teaser-inner">
           <motion.div
@@ -347,6 +189,19 @@ export default function Hero() {
             <span className="arrow">→</span>
           </motion.button>
         </div>
+      </div>
+
+      <div className="wave-divider" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
+            fill="var(--bg)" // ← match your next section's bg color
+          />
+        </svg>
       </div>
     </div>
   );

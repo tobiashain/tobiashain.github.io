@@ -6,7 +6,7 @@ export default function Header() {
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
     >
       <a href="#">
         <button className="nav">Home</button>
