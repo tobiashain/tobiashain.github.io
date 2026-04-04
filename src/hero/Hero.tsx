@@ -115,7 +115,6 @@ export default function Hero() {
           rock-solid backends.
         </motion.p>
 
-        {/* Links — spring bounce entrance */}
         <motion.div
           className="links"
           initial={{ y: 20, opacity: 0 }}
@@ -169,28 +168,28 @@ export default function Hero() {
           </motion.p>
 
           <OsWindow />
-
-          <motion.button
-            className="teaser-cta"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: 0.3,
-              type: "spring",
-              stiffness: 280,
-              damping: 18,
-            }}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <span className="win-icon">⊞</span>
-            Launch TobiOS
-            <span className="arrow">→</span>
-          </motion.button>
+          <a href="https://tobiashain.github.io/TobiOS/" target="_blank">
+            <motion.button
+              className="teaser-cta"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                delay: 0.3,
+                type: "spring",
+                stiffness: 280,
+                damping: 18,
+              }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span className="win-icon">⊞</span>
+              Launch TobiOS
+              <span className="arrow">→</span>
+            </motion.button>
+          </a>
         </div>
       </div>
-
       <div className="wave-divider" aria-hidden="true">
         <svg
           viewBox="0 0 1440 80"
@@ -199,7 +198,15 @@ export default function Hero() {
         >
           <path
             d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
-            fill="var(--bg)" // ← match your next section's bg color
+            fill="var(--bg)"
+          />
+
+          <path
+            d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40"
+            fill="none"
+            stroke="var(--border)"
+            stroke-width="2"
+            stroke-linecap="round"
           />
         </svg>
       </div>
