@@ -1,4 +1,6 @@
-export default function CareerSection({ item }) {
+import type { Experience } from "./Career";
+
+export default function CareerSection({ item }: { item: Experience }) {
   return (
     <>
       <div className="row" key={item.id}>

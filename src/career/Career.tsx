@@ -1,7 +1,17 @@
 import "./career.scss";
 import CareerSection from "./CareerSection";
 
-const experience = [
+export interface Experience {
+  id: string;
+  image: string;
+  date: string;
+  activity: string;
+  type: string;
+  context: string;
+  link?: string;
+}
+
+const experience: Experience[] = [
   {
     id: "internship",
     image: "https://picsum.photos/seed/internship/200",
