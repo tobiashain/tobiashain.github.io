@@ -205,8 +205,8 @@ export default function Hero() {
             d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40"
             fill="none"
             stroke="var(--border)"
-            stroke-width="2"
-            stroke-linecap="round"
+            strokeWidth="2"
+            strokeLinecap="round"
           />
         </svg>
       </div>

@@ -95,8 +95,8 @@ export default function Career() {
         </p>
         <div className="table">
           <div className="line" />
-          {experience.map((item) => (
-            <CareerSection item={item} />
+          {experience.map((item, index) => (
+            <CareerSection key={index} item={item} />
           ))}
         </div>
       </section>
@@ -108,8 +108,8 @@ export default function Career() {
         </p>
         <div className="table">
           <div className="line" />
-          {projects.map((item) => (
-            <CareerSection item={item} />
+          {projects.map((item, index) => (
+            <CareerSection key={index} item={item} />
           ))}
         </div>
       </section>
