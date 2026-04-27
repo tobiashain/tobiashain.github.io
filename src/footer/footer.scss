@@ -27,6 +27,7 @@ footer {
 
   .links {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.25rem;
 
     .link {
@@ -75,6 +76,15 @@ footer {
         width: 20px;
         height: 20px;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    margin-bottom: 2rem;
+    .links {
+      display: none;
     }
   }
 }

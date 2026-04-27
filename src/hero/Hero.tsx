@@ -11,9 +11,12 @@ export default function Hero() {
   const [scopeDev, animateDev] = useAnimate();
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    const xOffset = isMobile ? 25 : 80;
+
     animateFS(
       scopeFS.current,
-      { x: 80 },
+      { x: xOffset },
       { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 },
     ).then(() => {
       animateFS(
@@ -30,7 +33,7 @@ export default function Hero() {
 
     animateDev(
       scopeDev.current,
-      { x: -80 },
+      { x: -xOffset },
       { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
     ).then(() => {
       animateDev(

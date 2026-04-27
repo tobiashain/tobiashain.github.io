@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 
 export function Particles() {
   const particles = Array.from({ length: 56 }, (_, i) => ({
@@ -13,31 +14,35 @@ export function Particles() {
     opacity: Math.random() * 0.4 + 0.1,
   }));
 
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false });
+
   return (
-    <div className="particles" aria-hidden="true">
-      {particles.map((p) => (
-        <motion.span
-          key={p.id}
-          className="particle"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: p.size,
-            height: p.size,
-          }}
-          animate={{
-            x: [0, p.driftX, 0],
-            y: [0, p.driftY, 0],
-            opacity: [p.opacity, p.opacity * 2.5, p.opacity],
-          }}
-          transition={{
-            duration: p.duration,
-            delay: p.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+    <div ref={ref} className="particles" aria-hidden="true">
+      {isInView &&
+        particles.map((p) => (
+          <motion.span
+            key={p.id}
+            className="particle"
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: p.size,
+              height: p.size,
+            }}
+            animate={{
+              x: [0, p.driftX, 0],
+              y: [0, p.driftY, 0],
+              opacity: [p.opacity, p.opacity * 2.5, p.opacity],
+            }}
+            transition={{
+              duration: p.duration,
+              delay: p.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
     </div>
   );
 }

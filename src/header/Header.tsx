@@ -8,20 +8,20 @@ export default function Header() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
     >
-      <a href="#">
-        <button className="nav">Home</button>
+      <a href="#" className="nav">
+        Home
       </a>
-      <a href="#tobiOS">
-        <button className="nav">TobiOS</button>
+      <a href="#tobiOS" className="nav">
+        TobiOS
       </a>
-      <a href="#experience">
-        <button className="nav">Experience</button>
+      <a href="#experience" className="nav">
+        Experience
       </a>
-      <a href="#projects">
-        <button className="nav">Projects</button>
+      <a href="#projects" className="nav">
+        Projects
       </a>
-      <a href="#contact">
-        <button className="nav">Contact</button>
+      <a href="#contact" className="nav">
+        Contact
       </a>
     </motion.nav>
   );

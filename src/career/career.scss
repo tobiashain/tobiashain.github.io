@@ -156,3 +156,18 @@
     z-index: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .career {
+    .line {
+      left: 35px;
+    }
+    .image {
+      width: 70px;
+    }
+
+    .row {
+      grid-template-columns: 70px 1fr;
+    }
+  }
+}

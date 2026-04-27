@@ -14,7 +14,7 @@ export interface Experience {
 const experience: Experience[] = [
   {
     id: "internship",
-    image: "https://picsum.photos/seed/internship/200",
+    image: "./experience/moving_primates.jpg",
     date: "2023 — 1 month",
     activity: "Moving Primates",
     type: "Web Developer Intern",
@@ -24,7 +24,7 @@ const experience: Experience[] = [
   },
   {
     id: "civilian",
-    image: "https://picsum.photos/seed/civilian/200",
+    image: "./experience/sozialzentrum.png",
     date: "2024 – 2025 · 9 months",
     activity: "Civilian Service",
     type: "Mandatory Service — Completed",
@@ -34,7 +34,7 @@ const experience: Experience[] = [
   },
   {
     id: "school",
-    image: "https://picsum.photos/seed/school/200",
+    image: "./experience/hak.jpg",
     date: "2019 – 2024",
     activity: "Handelsakademie Digital Business Kitzbühel",
     type: "Information Technology",
@@ -47,7 +47,7 @@ const experience: Experience[] = [
 const projects = [
   {
     id: "portfolio",
-    image: "https://picsum.photos/seed/tobios/200",
+    image: "./experience/tobiOS.png",
     date: "2025 – Present",
     activity: "TobiOS",
     type: "Full-Stack · Personal Project",
@@ -57,7 +57,7 @@ const projects = [
   },
   {
     id: "simplefeedback",
-    image: "https://picsum.photos/seed/portfolio/200",
+    image: "./experience/simplefeedback.png",
     date: "2025 – Present",
     activity: "Simplefeedback",
     type: "React · SCSS · TypeScript · NestJS",
@@ -76,7 +76,7 @@ const projects = [
   },
   {
     id: "odin",
-    image: "https://picsum.photos/seed/odin/200",
+    image: "./experience/odin.png",
     date: "Completed 2025",
     activity: "The Odin Project",
     type: "Full-Stack Web Development",

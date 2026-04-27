@@ -30,7 +30,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
             <div className="subtitle">{project.subTitle}</div>
             <div className="chips">
               {project.chips.map((chip) => (
-                <Chip key={chip} text={chip} image={""} />
+                <Chip key={chip} text={chip} image="" />
               ))}
             </div>
           </div>
