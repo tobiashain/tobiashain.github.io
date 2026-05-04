@@ -62,7 +62,7 @@ export default function Hero() {
           transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="image">
-            <img src="https://picsum.photos/200" alt="Tobias Hain" />
+            <img src="./me.jpg" alt="Tobias Hain" />
           </div>
           <div className="intro-text">
             <div className="status">

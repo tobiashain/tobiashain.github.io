@@ -67,7 +67,7 @@ const projects = [
   },
   {
     id: "godot",
-    image: "https://picsum.photos/seed/godot/200",
+    image: "./experience/skyfallow.png",
     date: "2026 – Present · 3 months in",
     activity: "Skyfallow - Farming Simulator",
     type: "Godot · GDScript · Game Dev",
