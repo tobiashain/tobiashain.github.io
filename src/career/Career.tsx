@@ -62,7 +62,7 @@ const projects = [
     activity: "Simplefeedback",
     type: "React · SCSS · TypeScript · NestJS",
     context:
-      "Designed and built end-to-end — both a minimal mode and an immersive OS-style experience as a showcase of craft and attention to detail.",
+      "A collaborative, ongoing project focused on building a CRM platform for the tourism industry. The goal is to help businesses collect, manage, and understand customer feedback in a structured way.",
     link: "https://simplefeedback.de/",
   },
   {
