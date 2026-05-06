@@ -162,6 +162,76 @@
   }
 }
 
+.discover .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.project:hover .discover .arrow {
+  transform: translateX(4px);
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.25s ease;
+
+  &__content {
+    width: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 1.5rem;
+    background: var(--main-background, #0b1020);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+    .window-project {
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    z-index: 10;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: var(--accent);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .projects {
     .projects-container {
