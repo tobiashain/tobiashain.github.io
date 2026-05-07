@@ -12,7 +12,12 @@ export default function CareerSection({ item }: { item: Experience }) {
           <div className="activity">
             {item.activity}
             {item.link && (
-              <a href={item.link} target="_blank" className="ext-link">
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ext-link"
+              >
                 ↗
               </a>
             )}

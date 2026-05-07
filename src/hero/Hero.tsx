@@ -114,7 +114,7 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.85 }}
         >
-          I build fast, thoughtful web experiences — from pixel-perfect UIs to
+          I build fast, thoughtful web experiences from pixel-perfect UIs to
           rock-solid backends.
         </motion.p>
 
@@ -129,10 +129,22 @@ export default function Hero() {
             damping: 18,
           }}
         >
-          <button className="primary">Contact me</button>
-          <button className="icon">
+          <a
+            href="mailto:hain.tobias@outlook.at"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn primary"
+          >
+            Contact me
+          </a>
+          <a
+            href="https://github.com/tobiashain"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn icon"
+          >
             <img src="/icons/github.png" alt="GitHub" />
-          </button>
+          </a>
         </motion.div>
       </div>
 
@@ -165,32 +177,37 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            TobiOS is a fully interactive Windows-style desktop — with real
-            apps, a file system, a taskbar, and everything about my work living
-            inside it.
+            TobiOS is a fully interactive Windows-style desktop with real apps,
+            a file system, a taskbar, and everything about my work living inside
+            it.
           </motion.p>
 
           <OsWindow />
-          <a href="https://tobiashain.github.io/TobiOS/" target="_blank">
-            <motion.button
-              className="teaser-cta"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.3,
-                type: "spring",
-                stiffness: 280,
-                damping: 18,
-              }}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <span className="win-icon">⊞</span>
-              Launch TobiOS
-              <span className="arrow">→</span>
-            </motion.button>
-          </a>
+
+          <motion.a
+            href="https://tobiashain.github.io/TobiOS/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn teaser-cta"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.3,
+
+              type: "spring",
+
+              stiffness: 280,
+
+              damping: 18,
+            }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <img src="/icons/windows.png" alt="" className="win-icon" />
+            Launch TobiOS
+            <span className="arrow">→</span>
+          </motion.a>
         </div>
       </div>
       <div className="wave-divider" aria-hidden="true">

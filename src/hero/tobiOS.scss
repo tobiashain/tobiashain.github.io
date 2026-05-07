@@ -196,6 +196,7 @@
 }
 
 .taskbar {
+  height: 40px;
   display: flex;
   align-items: center;
   background: rgba(17, 24, 39, 0.95);
@@ -212,9 +213,17 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.15s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background: rgba(59, 130, 246, 0.15);
+  }
+
+  img {
+    width: 25px;
+    object-fit: contain;
   }
 }
 

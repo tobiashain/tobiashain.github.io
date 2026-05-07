@@ -90,7 +90,9 @@ export function OsWindow() {
           viewport={{ once: true }}
           transition={{ delay: 0.9, duration: 0.45, ease: "easeOut" }}
         >
-          <div className="start-btn">⊞</div>
+          <div className="start-btn">
+            <img src="/icons/windows.png" alt="" className="win-icon" />
+          </div>
           <div className="taskbar-items">
             <div className="taskbar-item active">Portfolio.exe</div>
             <div className="taskbar-item">Terminal</div>

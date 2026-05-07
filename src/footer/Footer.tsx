@@ -27,7 +27,11 @@ export default function Footer() {
         </a>
       </div>
       <div className="socials">
-        <a href="#" className="icon">
+        <a
+          href="https://github.com/tobiashain"
+          rel="noopener noreferrer"
+          className="icon"
+        >
           <img src="/icons/github.png" alt="GitHub" />
         </a>
       </div>
