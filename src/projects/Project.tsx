@@ -1,6 +1,6 @@
 import { projects } from "../projects";
 import Chip from "../skills/Chip";
-import ImageGrid from "./imageGrid";
+import ImageGrid from "./ImageGrid";
 import "./project.scss";
 
 export default function Project({ windowId }: { windowId: string }) {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Chip from "../skills/Chip";
-import Project from "./project";
+import Project from "./Project";
 import "./projects.scss";
 import type { Project as ProjectType } from "../projects";
 
