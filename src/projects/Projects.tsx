@@ -17,16 +17,18 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
 
   const closeModal = useCallback(() => setSelectedProjectId(null), []);
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (selectedProjectId) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      document.body.classList.add("modal-open");
+      const scrollY = window.scrollY;
+      document.body.style.top = `-${scrollY}px`;
+
+      return () => {
+        document.body.classList.remove("modal-open");
+        document.body.style.top = "";
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [selectedProjectId]);
 
   // Escape key to close modal
