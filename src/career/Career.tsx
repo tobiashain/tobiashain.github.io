@@ -52,8 +52,8 @@ const projects = [
     activity: "TobiOS",
     type: "Full-Stack · Personal Project",
     context:
-      "Browser-based OS environment built from scratch — real file system, taskbar, apps, and a full desktop UI. The most technically ambitious thing I've built.",
-    link: "#",
+      "Browser-based OS environment built from scratch, real file system, taskbar, apps, and a full desktop UI. The most technically ambitious thing I've built.",
+    link: "https://tobiashain.github.io/TobiOS/",
   },
   {
     id: "simplefeedback",
@@ -77,7 +77,7 @@ const projects = [
   {
     id: "odin",
     image: "./experience/odin.png",
-    date: "Completed 2025",
+    date: "Completed 2026",
     activity: "The Odin Project",
     type: "Full-Stack Web Development",
     context:

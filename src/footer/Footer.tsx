@@ -29,6 +29,7 @@ export default function Footer() {
       <div className="socials">
         <a
           href="https://github.com/tobiashain"
+          target="_blank"
           rel="noopener noreferrer"
           className="icon"
         >

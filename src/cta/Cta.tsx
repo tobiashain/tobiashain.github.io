@@ -18,6 +18,7 @@ export default function CTA() {
           </a>
           <a
             href="https://github.com/tobiashain"
+            target="_blank"
             rel="noopener noreferrer"
             className="btn ghost"
           >

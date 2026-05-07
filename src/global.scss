@@ -101,6 +101,12 @@ header {
   }
 }
 
+.icon:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   main {
     width: 92%;
