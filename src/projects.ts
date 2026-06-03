@@ -77,6 +77,7 @@ export const projects: Project[] = [
       "pictures/tobiOS/4.webp",
     ],
     sourceCode: "https://github.com/tobiashain/TobiOS",
+    website: "https://tobiashain.github.io/TobiOS",
   },
   {
     id: "portfolio",

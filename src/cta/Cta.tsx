@@ -1,8 +1,10 @@
+import Divider from "../Divider";
 import "./cta.scss";
 
 export default function CTA() {
   return (
     <section className="cta">
+      <Divider />
       <div className="inner">
         <div className="label" id="contact">
           Get in touch
