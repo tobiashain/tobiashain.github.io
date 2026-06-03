@@ -1,5 +1,14 @@
 import { animate, motion, useMotionValue, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+
+function useClock() {
+  const [time, setTime] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setTime(new Date()), 15_000);
+    return () => clearInterval(id);
+  }, []);
+  return time.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+}
 
 export function OsWindow() {
   const mouseX = useMotionValue(0);
@@ -19,6 +28,8 @@ export function OsWindow() {
     animate(mouseX, 0, { duration: 0.5 });
     animate(mouseY, 0, { duration: 0.5 });
   }
+
+  const time = useClock();
 
   const icons = [
     { icon: "📁", label: "Projects" },
@@ -91,14 +102,14 @@ export function OsWindow() {
           transition={{ delay: 0.9, duration: 0.45, ease: "easeOut" }}
         >
           <div className="start-btn">
-            <img src="/icons/windows.png" alt="" className="win-icon" />
+            <img src="/icons/windows.webp" alt="" className="win-icon" />
           </div>
           <div className="taskbar-items">
             <div className="taskbar-item active">Portfolio.exe</div>
             <div className="taskbar-item">Terminal</div>
             <div className="taskbar-item">Chrome</div>
           </div>
-          <div className="clock">10:24 AM</div>
+          <div className="clock">{time}</div>
         </motion.div>
       </div>
     </motion.div>

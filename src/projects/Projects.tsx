@@ -18,17 +18,17 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
   const closeModal = useCallback(() => setSelectedProjectId(null), []);
 
   useEffect(() => {
-    if (selectedProjectId) {
-      document.body.classList.add("modal-open");
-      const scrollY = window.scrollY;
-      document.body.style.top = `-${scrollY}px`;
+    if (!selectedProjectId) return;
 
-      return () => {
-        document.body.classList.remove("modal-open");
-        document.body.style.top = "";
-        window.scrollTo(0, scrollY);
-      };
-    }
+    const scrollY = window.scrollY;
+    document.body.classList.add("modal-open");
+    document.body.style.top = `-${scrollY}px`;
+
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.body.style.top = "";
+      window.scrollTo(0, scrollY);
+    };
   }, [selectedProjectId]);
 
   // Escape key to close modal
@@ -51,7 +51,7 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
           {visible.map((project) => (
             <div className="project" key={project.id}>
               <div className="image">
-                <img src={project.images[0]} alt="" />
+                <img src={project.images[0]} alt="" loading="lazy" />
               </div>
               <div className="title">
                 <div className="text">{project.title}</div>
