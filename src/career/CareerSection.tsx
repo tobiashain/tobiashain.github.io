@@ -5,7 +5,7 @@ export default function CareerSection({ item }: { item: Experience }) {
     <>
       <div className="row" key={item.id}>
         <div className="image">
-          <img src={item.image} alt={item.activity} />
+          <img src={item.image} alt={item.activity} loading="lazy" />
         </div>
         <div className="description">
           <div className="date">{item.date}</div>

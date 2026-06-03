@@ -4,23 +4,23 @@ import "./skills.scss";
 
 export default function Skills() {
   const advanced = [
-    { text: "Javascript", image: "javascript.png" },
-    { text: "Typescript", image: "typescript.png" },
-    { text: "React", image: "react.png" },
-    { text: "Node.js", image: "nodejs.png" },
-    { text: "MySQL", image: "mysql.png" },
-    { text: "C#", image: "csharp.png" },
-    { text: "Sass", image: "sass.png" },
-    { text: "Git", image: "git.png" },
+    { text: "Javascript", image: "javascript.webp" },
+    { text: "Typescript", image: "typescript.webp" },
+    { text: "React", image: "react.webp" },
+    { text: "Node.js", image: "nodejs.webp" },
+    { text: "MySQL", image: "mysql.webp" },
+    { text: "C#", image: "csharp.webp" },
+    { text: "Sass", image: "sass.webp" },
+    { text: "Git", image: "git.webp" },
   ];
 
   const basic = [
-    { text: "PHP", image: "php.png" },
-    { text: "Wordpress", image: "wordpress.png" },
-    { text: "Tailwind CSS", image: "tailwindcss.png" },
-    { text: "Nest.js", image: "nestjs.png" },
-    { text: "Docker", image: "docker.png" },
-    { text: "GDScript", image: "godot.png" },
+    { text: "PHP", image: "php.webp" },
+    { text: "Wordpress", image: "wordpress.webp" },
+    { text: "Tailwind CSS", image: "tailwindcss.webp" },
+    { text: "Nest.js", image: "nestjs.webp" },
+    { text: "Docker", image: "docker.webp" },
+    { text: "GDScript", image: "godot.webp" },
   ];
 
   return (

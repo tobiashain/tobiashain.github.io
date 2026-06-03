@@ -14,7 +14,7 @@ export interface Experience {
 const experience: Experience[] = [
   {
     id: "internship",
-    image: "./experience/moving_primates.jpg",
+    image: "./experience/moving_primates.webp",
     date: "2023 — 1 month",
     activity: "Moving Primates",
     type: "Web Developer Intern",
@@ -24,7 +24,7 @@ const experience: Experience[] = [
   },
   {
     id: "civilian",
-    image: "./experience/sozialzentrum.png",
+    image: "./experience/sozialzentrum.webp",
     date: "2024 – 2025 · 9 months",
     activity: "Civilian Service",
     type: "Mandatory Service — Completed",
@@ -34,7 +34,7 @@ const experience: Experience[] = [
   },
   {
     id: "school",
-    image: "./experience/hak.jpg",
+    image: "./experience/hak.webp",
     date: "2019 – 2024",
     activity: "Handelsakademie Digital Business Kitzbühel",
     type: "Information Technology",
@@ -47,7 +47,7 @@ const experience: Experience[] = [
 const projects = [
   {
     id: "portfolio",
-    image: "./experience/tobiOS.png",
+    image: "./experience/tobiOS.webp",
     date: "2025 – Present",
     activity: "TobiOS",
     type: "Full-Stack · Personal Project",
@@ -57,7 +57,7 @@ const projects = [
   },
   {
     id: "simplefeedback",
-    image: "./experience/simplefeedback.png",
+    image: "./experience/simplefeedback.webp",
     date: "2025 – Present",
     activity: "Simplefeedback",
     type: "React · SCSS · TypeScript · NestJS",
@@ -67,7 +67,7 @@ const projects = [
   },
   {
     id: "godot",
-    image: "./experience/skyfallow.png",
+    image: "./experience/skyfallow.webp",
     date: "2026 – Present · 3 months in",
     activity: "Skyfallow - Farming Simulator",
     type: "Godot · GDScript · Game Dev",
@@ -76,7 +76,7 @@ const projects = [
   },
   {
     id: "odin",
-    image: "./experience/odin.png",
+    image: "./experience/odin.webp",
     date: "Completed 2026",
     activity: "The Odin Project",
     type: "Full-Stack Web Development",

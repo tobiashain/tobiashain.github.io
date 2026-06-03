@@ -44,6 +44,7 @@ export default function ImageGrid({ images }: { images: string[] }) {
                 <img
                   src={src}
                   alt={`Preview ${index + 1}`}
+                  loading="lazy"
                   onLoad={() => handleLoad(index)}
                   style={{ opacity: loadedSet.has(index) ? 1 : 0 }}
                 />

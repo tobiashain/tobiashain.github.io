@@ -62,7 +62,7 @@ export default function Hero() {
           transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="image">
-            <img src="./me.jpg" alt="Tobias Hain" />
+            <img src="./me.webp" alt="Tobias Hain" loading="lazy" width="96" height="96" />
           </div>
           <div className="intro-text">
             <div className="status">
@@ -143,7 +143,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="btn icon"
           >
-            <img src="/icons/github.png" alt="GitHub" />
+            <img src="/icons/github.webp" alt="GitHub" />
           </a>
         </motion.div>
       </div>
@@ -204,7 +204,7 @@ export default function Hero() {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
           >
-            <img src="/icons/windows.png" alt="" className="win-icon" />
+            <img src="/icons/windows.webp" alt="" className="win-icon" />
             Launch TobiOS
             <span className="arrow">→</span>
           </motion.a>

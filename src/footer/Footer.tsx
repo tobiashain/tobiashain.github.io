@@ -33,7 +33,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="icon"
         >
-          <img src="/icons/github.png" alt="GitHub" />
+          <img src="/icons/github.webp" alt="GitHub" />
         </a>
       </div>
     </footer>
