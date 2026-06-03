@@ -1,0 +1,459 @@
+// ============================================
+// PROTOTYPE: Section Divider & Background Variants
+// THROWAWAY — delete after choosing direction
+// ============================================
+
+// --- Root overrides ---
+.proto-root {
+  .separator {
+    display: none;
+  }
+
+  .career {
+    margin-top: 0;
+  }
+
+  .cta {
+    margin-top: 0;
+  }
+
+  .skills {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .projects {
+    margin-top: 0;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// --- Shared divider base ---
+.proto-divider {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+// ============================================
+// VARIANT A — Diagonal Cut
+// ============================================
+.proto-root.proto-a {
+  .hero,
+  .career,
+  .skills,
+  .projects,
+  .cta {
+    position: relative;
+    overflow: visible !important;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: rgba(6, 182, 212, 0.03);
+  }
+
+  .career::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: rgba(8, 145, 178, 0.05);
+  }
+
+  .skills::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: rgba(14, 116, 144, 0.04);
+  }
+
+  .projects::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: rgba(6, 182, 212, 0.05);
+  }
+
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: rgba(8, 145, 178, 0.04);
+  }
+}
+
+.proto-divider-a {
+  height: 56px;
+}
+
+// ============================================
+// VARIANT B — ASCII Terminal Border
+// ============================================
+.proto-root.proto-b {
+  .hero,
+  .career,
+  .skills,
+  .projects,
+  .cta {
+    position: relative;
+    overflow: visible !important;
+
+    // Dot-grid base (from C)
+    background-image: radial-gradient(
+      rgba(6, 182, 212, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  // Grid lines + scanline overlay (C grid + B scanlines)
+  .hero::before,
+  .career::before,
+  .skills::before,
+  .projects::before,
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(6, 182, 212, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.025) 1px, transparent 1px),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(6, 182, 212, 0.035) 2px,
+        rgba(6, 182, 212, 0.035) 4px
+      );
+    background-size: 48px 48px, 48px 48px, 100% 4px;
+  }
+
+  // Hero keeps its breathing overlay
+  .hero::after {
+    display: block;
+  }
+}
+
+.proto-divider-b {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0;
+
+  .proto-terminal-label {
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(6, 182, 212, 0.55);
+    user-select: none;
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+
+  svg {
+    height: 36px;
+  }
+}
+
+// ============================================
+// VARIANT C — Circuit / PCB Trace
+// ============================================
+.proto-root.proto-c {
+  .hero,
+  .career,
+  .skills,
+  .projects,
+  .cta {
+    background-image: radial-gradient(
+      rgba(6, 182, 212, 0.07) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    position: relative;
+  }
+
+  // Grid line overlay for extra PCB feel
+  .hero::before,
+  .career::before,
+  .skills::before,
+  .projects::before,
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: linear-gradient(
+        rgba(6, 182, 212, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+.proto-divider-c {
+  height: 56px;
+}
+
+// ============================================
+// VARIANT D — Glitch / Shred
+// ============================================
+.proto-root.proto-d {
+  .hero,
+  .career,
+  .skills,
+  .projects,
+  .cta {
+    position: relative;
+    overflow: visible !important;
+  }
+
+  // Noise texture overlay
+  .hero::before,
+  .career::before,
+  .skills::before,
+  .projects::before,
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  // Subtle hue rotation per section
+  .hero {
+    background-color: rgba(6, 182, 212, 0.02);
+  }
+  .career {
+    background-color: rgba(180, 100, 212, 0.03);
+  }
+  .skills {
+    background-color: rgba(100, 200, 180, 0.03);
+  }
+  .projects {
+    background-color: rgba(200, 160, 100, 0.03);
+  }
+  .cta {
+    background-color: rgba(6, 182, 212, 0.03);
+  }
+}
+
+.proto-divider-d {
+  height: 44px;
+}
+
+// ============================================
+// VARIANT E — Sci-Fi Data Console (B + C fusion)
+// ============================================
+.proto-root.proto-e {
+  .hero,
+  .career,
+  .skills,
+  .projects,
+  .cta {
+    position: relative;
+    overflow: visible !important;
+
+    // Dot-grid base (from C)
+    background-image: radial-gradient(
+      rgba(6, 182, 212, 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+
+    // Grid lines + scanlines layered on ::before
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(6, 182, 212, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.025) 1px, transparent 1px),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(6, 182, 212, 0.03) 2px,
+          rgba(6, 182, 212, 0.03) 4px
+        );
+      background-size: 48px 48px, 48px 48px, 100% 4px;
+    }
+  }
+
+  // Hero keeps its breathing overlay
+  .hero {
+    background-color: #0a1628;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  // CTA gradient — cleaner sci-fi tint
+  .cta {
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.08) 0%, #0a1628 65%);
+  }
+}
+
+.proto-divider-e {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem 0;
+
+  .proto-terminal-label {
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(6, 182, 212, 0.55);
+    user-select: none;
+    text-align: center;
+    padding: 0.25rem 0;
+  }
+
+  svg {
+    width: 100%;
+    display: block;
+  }
+}
+
+// ============================================
+// PROTOTYPE SWITCHER — Floating bottom bar
+// ============================================
+.proto-switcher {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-family: "InterVariable", sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  &-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    white-space: nowrap;
+    min-width: 160px;
+    text-align: center;
+
+    .variant-letter {
+      color: #06b6d4;
+      font-weight: 800;
+      margin-right: 0.3rem;
+    }
+  }
+
+  &-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(6, 182, 212, 0.18);
+      border-color: rgba(6, 182, 212, 0.35);
+      color: #06b6d4;
+    }
+
+    &:active {
+      transform: scale(0.93);
+    }
+  }
+}
+
+// --- Responsive ---
+@media (max-width: 768px) {
+  .proto-divider {
+    svg {
+      // Scale down SVG-heavy dividers on mobile
+    }
+  }
+
+  .proto-divider-a,
+  .proto-divider-c {
+    height: 40px;
+  }
+
+  .proto-divider-d {
+    height: 32px;
+  }
+
+  .proto-switcher {
+    bottom: 16px;
+    padding: 0.35rem 0.9rem;
+    gap: 0.4rem;
+
+    &-label {
+      font-size: 0.68rem;
+      min-width: 130px;
+    }
+
+    &-btn {
+      width: 26px;
+      height: 26px;
+      font-size: 0.85rem;
+    }
+  }
+}
