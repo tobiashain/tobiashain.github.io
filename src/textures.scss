@@ -1,0 +1,33 @@
+@use "_vars" as *;
+
+@mixin section-texture($grid-size: 24px) {
+  position: relative;
+  overflow: visible !important;
+  @include texture-overlay($grid-size);
+}
+
+@mixin texture-overlay($grid-size: 24px) {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba($accent, 0.035) 2px,
+        rgba($accent, 0.035) 4px
+      ),
+      linear-gradient(90deg, rgba($accent, 0.025) 1px, transparent 1px),
+      linear-gradient(rgba($accent, 0.025) 1px, transparent 1px),
+      radial-gradient(rgba($accent, 0.06) 1px, transparent 1px);
+    background-size:
+      100% 4px,
+      ($grid-size * 2) ($grid-size * 2),
+      ($grid-size * 2) ($grid-size * 2),
+      $grid-size $grid-size;
+  }
+}

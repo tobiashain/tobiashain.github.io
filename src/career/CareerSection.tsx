@@ -1,10 +1,11 @@
 import type { Experience } from "./Career";
 
-export default function CareerSection({ item }: { item: Experience }) {
+export default function CareerSection({ item, current }: { item: Experience; current?: boolean }) {
   return (
     <>
       <div className="row" key={item.id}>
         <div className="image">
+          {current && <span className="status-dot" />}
           <img src={item.image} alt={item.activity} loading="lazy" />
         </div>
         <div className="description">

@@ -1,8 +1,21 @@
+@use "../_vars" as *;
+@use "../textures.scss" as *;
+
 .career {
-  margin-top: 6rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  @include section-texture(16px);
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: min(1000px, 90%);
+    margin: 0 auto;
+    padding: 2rem 0 4rem 0;
+  }
 }
 
 .career-group {
@@ -21,14 +34,22 @@
   align-items: center;
 }
 
+.prompt {
+  font-family: "Courier New", "Consolas", monospace;
+  color: var(--amber);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
 .section-badge {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba($accent, 0.1);
+  border: 1px solid rgba($accent, 0.2);
   border-radius: 999px;
   padding: 0.2rem 0.65rem;
   vertical-align: middle;
@@ -39,10 +60,20 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 1rem;
+    border: 1px solid rgba($accent, 0.2);
+    border-radius: 0;
     background: var(--surface);
     overflow: hidden;
+  }
+
+  .table-header {
+    font-family: "Courier New", "Consolas", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: rgba($accent, 0.6);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba($accent, 0.15);
+    background: rgba($accent, 0.04);
   }
 
   .row {
@@ -55,7 +86,7 @@
     transition: background 0.2s ease;
 
     &:not(:last-child) {
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba($accent, 0.08);
     }
 
     &:hover {
@@ -79,6 +110,18 @@
     z-index: 1;
   }
 
+  .status-dot {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px rgba($green, 0.5);
+    z-index: 2;
+  }
+
   img {
     object-fit: cover;
     width: 52px;
@@ -100,7 +143,8 @@
   }
 
   .date {
-    color: var(--muted);
+    font-family: "Courier New", "Consolas", monospace;
+    color: rgba($accent, 0.55);
     font-size: 0.72rem;
     letter-spacing: 0.03em;
   }
@@ -149,8 +193,8 @@
     background: linear-gradient(
       to bottom,
       transparent,
-      var(--border) 8%,
-      var(--border) 92%,
+      rgba($accent, 0.5) 8%,
+      rgba($accent, 0.5) 92%,
       transparent
     );
     z-index: 0;
@@ -166,8 +210,27 @@
       width: 70px;
     }
 
+    .status-dot {
+      left: 4px;
+      width: 6px;
+      height: 6px;
+    }
+
     .row {
       grid-template-columns: 70px 1fr;
+    }
+
+    .prompt {
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+    }
+
+    .table-header {
+      font-size: 0.6rem;
+      padding: 0.4rem 0.75rem;
     }
   }
 }

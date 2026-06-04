@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Chip from "../skills/Chip";
 import Project from "./Project";
+import Divider from "../Divider";
 import "./projects.scss";
 import type { Project as ProjectType } from "../projects";
 
@@ -20,14 +21,18 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
   useEffect(() => {
     if (!selectedProjectId) return;
 
-    const scrollY = window.scrollY;
-    document.body.classList.add("modal-open");
-    document.body.style.top = `-${scrollY}px`;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const html = document.documentElement;
+    const body = document.body;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
-      document.body.classList.remove("modal-open");
-      document.body.style.top = "";
-      window.scrollTo(0, scrollY);
+      html.style.overflow = "";
+      body.style.overflow = "";
+      body.style.paddingRight = "";
     };
   }, [selectedProjectId]);
 
@@ -43,8 +48,11 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
   return (
     <>
       <div className="projects" id="projects">
+        <Divider />
+        <div className="projects__inner">
         <div className="section-header">
-          <p>Projects</p>
+          <span className="prompt">&gt;&gt;&gt;</span>
+          Projects
         </div>
 
         <div className={`projects-container ${expanded ? "expanded" : ""}`}>
@@ -59,6 +67,7 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
                   className="discover"
                   onClick={() => setSelectedProjectId(project.id)}
                 >
+                  <span className="discover-prompt">&gt;</span>
                   Discover{" "}
                   <span className="arrow" aria-hidden="true">
                     →
@@ -94,14 +103,15 @@ export default function Projects({ projects }: { projects: ProjectType[] }) {
               )}
             </button>
           </div>
-        )}
+          )}
+        </div>
       </div>
 
       {selectedProjectId && (
         <div className="project-modal" onClick={closeModal}>
           <div
             className="project-modal__content"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               className="project-modal__close"

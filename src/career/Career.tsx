@@ -1,5 +1,6 @@
 import "./career.scss";
 import CareerSection from "./CareerSection";
+import Divider from "../Divider";
 
 export interface Experience {
   id: string;
@@ -89,30 +90,37 @@ const projects = [
 export default function Career() {
   return (
     <div className="career">
+      <Divider />
+      <div className="career__inner">
       <section className="career-group">
         <p className="section-title" id="experience">
+          <span className="prompt">&gt;&gt;&gt;</span>
           Experience
         </p>
         <div className="table">
+          <div className="table-header">$ ls ~/experience/</div>
           <div className="line" />
           {experience.map((item, index) => (
-            <CareerSection key={index} item={item} />
+            <CareerSection key={index} item={item} current={index === 0} />
           ))}
         </div>
       </section>
 
       <section className="career-group">
         <p className="section-title">
+          <span className="prompt">&gt;&gt;&gt;</span>
           Projects
           <span className="section-badge">Independent work</span>
         </p>
         <div className="table">
+          <div className="table-header">$ ls ~/projects/</div>
           <div className="line" />
           {projects.map((item, index) => (
-            <CareerSection key={index} item={item} />
+            <CareerSection key={index} item={item} current={index === 0} />
           ))}
         </div>
       </section>
+      </div>
     </div>
   );
 }

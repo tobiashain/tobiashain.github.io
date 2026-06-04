@@ -1,3 +1,5 @@
+@use "../_vars" as *;
+
 .tobios-teaser {
   width: 100%;
   padding: 6rem 2rem;
@@ -68,11 +70,11 @@
   max-width: 580px;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #374151;
+  border: 1px solid var(--border);
   box-shadow:
-    0 0 0 1px rgba(59, 130, 246, 0.15),
+    0 0 0 1px rgba($accent, 0.15),
     0 20px 60px rgba(0, 0, 0, 0.6),
-    0 0 80px rgba(59, 130, 246, 0.08);
+    0 0 80px rgba($accent, 0.08);
   animation: float 4s ease-in-out infinite;
   perspective: 800px;
 }
@@ -90,9 +92,9 @@
 .titlebar {
   display: flex;
   align-items: center;
-  background: #1e2a3a;
+  background: $titlebar-bg;
   padding: 0.6rem 0.85rem;
-  border-bottom: 1px solid #374151;
+  border-bottom: 1px solid var(--border);
   gap: 0.75rem;
 }
 
@@ -106,13 +108,13 @@
     height: 10px;
     border-radius: 50%;
     &.red {
-      background: #ff5f57;
+      background: var(--dot-red);
     }
     &.yellow {
-      background: #febc2e;
+      background: var(--dot-yellow);
     }
     &.green {
-      background: #28c840;
+      background: var(--dot-green);
     }
   }
 }
@@ -130,7 +132,7 @@
 }
 
 .os-body {
-  background: #0d1b2a;
+  background: var(--bg-darker);
   min-height: 200px;
   display: flex;
   flex-direction: column;
@@ -190,7 +192,7 @@
 
   span {
     font-size: 0.65rem;
-    color: #cbd5e1;
+    color: var(--desktop-label);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   }
 }
@@ -199,16 +201,17 @@
   height: 40px;
   display: flex;
   align-items: center;
-  background: rgba(17, 24, 39, 0.95);
+  background: rgba($surface, 0.95);
   backdrop-filter: blur(8px);
-  border-top: 1px solid #1f2d3d;
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid $taskbar-border;
   padding: 0.4rem 0.75rem;
   gap: 0.75rem;
 }
 
 .start-btn {
   font-size: 1.1rem;
-  color: #3b82f6;
+  color: var(--accent);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   cursor: pointer;
@@ -218,7 +221,7 @@
   align-items: center;
 
   &:hover {
-    background: rgba(59, 130, 246, 0.15);
+    background: rgba($accent, 0.15);
   }
 
   img {
@@ -243,9 +246,9 @@
   transition: background 0.15s;
 
   &.active {
-    background: rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.3);
-    color: #93c5fd;
+    background: rgba($accent, 0.15);
+    border-color: rgba($accent, 0.3);
+    color: var(--taskbar-text);
   }
 
   &:hover {
@@ -273,8 +276,8 @@
   cursor: pointer;
   border: none;
   color: #fff;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.45);
+  background: linear-gradient(135deg, var(--accent-hover), var(--accent));
+  box-shadow: 0 4px 24px rgba($accent, 0.45);
   transition:
     box-shadow 0.2s ease,
     background 0.2s ease;
@@ -298,8 +301,8 @@
   }
 
   &:hover {
-    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.6);
-    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    box-shadow: 0 8px 32px rgba($accent, 0.6);
+    background: linear-gradient(135deg, var(--accent-dark), var(--accent-hover));
 
     &::before {
       left: 140%;
@@ -320,64 +323,23 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    .content {
-      padding: 1rem;
-      gap: 1rem;
-      min-height: 60svh;
+  .tobios-teaser {
+    padding: 2rem 1rem;
+
+    .teaser-inner {
+      width: 100%;
     }
 
-    .introduction {
-      gap: 0.75rem;
+    .teaser-heading {
+      font-size: 1.2rem;
     }
 
-    .image,
-    .image > img {
-      width: 48px;
-      height: 48px;
-    }
-
-    .title {
-      line-height: 1.1em;
-    }
-
-    .tagline {
+    .teaser-sub {
       font-size: 0.9rem;
-      padding: 0 0.5rem;
     }
+  }
 
-    .links {
-      gap: 0.5rem;
-    }
-
-    button {
-      height: 36px;
-      padding: 0 1rem;
-      font-size: 0.8rem;
-
-      &.icon {
-        width: 36px;
-      }
-    }
-
-    .tobios-teaser {
-      padding: 2rem 1rem;
-
-      .teaser-inner {
-        width: 100%;
-      }
-
-      .teaser-heading {
-        font-size: 1.2rem;
-      }
-
-      .teaser-sub {
-        font-size: 0.9rem;
-      }
-    }
-
-    .taskbar {
-      padding: 0 0.5rem;
-    }
+  .taskbar {
+    padding: 0 0.5rem;
   }
 }

@@ -1,11 +1,29 @@
+@use "_vars" as *;
+
 :root {
-  --bg: #0f172a;
-  --surface: #111827;
-  --card: #1f2937;
-  --accent: #3b82f6;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --border: #374151;
+  --bg: #{$bg};
+  --surface: #{$surface};
+  --card: #{$card};
+  --accent: #{$accent};
+  --accent-hover: #{$accent-hover};
+  --accent-dark: #{$accent-dark};
+  --secondary: #{$secondary};
+  --green: #{$green};
+  --amber: #{$amber};
+  --text: #{$text};
+  --text-light: #{$text};
+  --muted: #{$muted};
+  --border: #{$border};
+  --bg-dark: #{$bg-dark};
+  --bg-darker: #{$bg-darker};
+  --main-background: #{$main-bg};
+  --dot-red: #{$dot-red};
+  --dot-yellow: #{$dot-yellow};
+  --dot-green: #{$dot-green};
+  --caret: #{$caret};
+  --context-text: #{$context-text};
+  --taskbar-text: #{$taskbar-text};
+  --desktop-label: #{$desktop-label};
 }
 
 html {
@@ -25,12 +43,24 @@ body {
   color: var(--text);
   overflow-x: hidden;
   margin: 0;
-}
+  position: relative;
 
-body.modal-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(6, 182, 212, 0.035) 2px,
+      rgba(6, 182, 212, 0.035) 4px
+    );
+    background-size: 100% 4px;
+    opacity: 0.5;
+  }
 }
 
 * {
@@ -52,14 +82,6 @@ header {
   backdrop-filter: blur(10px);
 }
 
-.separator {
-  margin: 4rem 0;
-  border: 1px solid var(--border);
-  width: 100%;
-  margin-left: 0;
-  transform: none;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -68,6 +90,7 @@ header {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--text);
   border-radius: 999px;
   height: 44px;
@@ -104,11 +127,24 @@ header {
   &.primary {
     background: var(--accent);
     border-color: var(--accent);
+    color: #fff;
 
     &:hover {
-      background: #2563eb;
-      border-color: #2563eb;
-      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      box-shadow: 0 4px 20px rgba($accent, 0.35);
+    }
+  }
+
+  &.ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+
+    &:hover {
+      background: var(--card);
+      border-color: var(--text);
+      transform: translateY(-2px);
     }
   }
 }
@@ -119,12 +155,17 @@ header {
   transform: translateY(-2px);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   main {
     width: 92%;
-  }
-
-  .separator {
-    margin: 2rem 0;
   }
 }

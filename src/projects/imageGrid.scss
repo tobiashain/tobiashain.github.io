@@ -1,3 +1,5 @@
+@use "../_vars" as *;
+
 .image-grid {
   width: 100%;
   max-width: 600px;
@@ -10,7 +12,7 @@
 
   &__item {
     background: rgba(31, 58, 138, 0.2);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    border: 1px solid rgba($accent, 0.2);
     border-radius: 0.75rem;
     overflow: hidden;
     cursor: pointer;
@@ -18,7 +20,7 @@
     transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 
     &:hover {
-      border-color: rgba(6, 182, 212, 0.6);
+      border-color: rgba($accent, 0.6);
       transform: scale(1.02);
       box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.5);
 
@@ -43,13 +45,13 @@
 
     &--empty {
       cursor: default;
-      background: rgba(17, 24, 39, 0.4);
+      background: rgba($surface, 0.4);
       border-style: dashed;
 
       &:hover {
         transform: none;
         box-shadow: none;
-        border-color: rgba(6, 182, 212, 0.2);
+        border-color: rgba($accent, 0.2);
       }
     }
   }
@@ -65,8 +67,8 @@
     span {
       width: 28px;
       height: 28px;
-      border: 2.5px solid rgba(6, 182, 212, 0.2);
-      border-top-color: rgba(6, 182, 212, 0.85);
+      border: 2.5px solid rgba($accent, 0.2);
+      border-top-color: rgba($accent, 0.85);
       border-radius: 50%;
       animation: spin 0.75s linear infinite;
     }
@@ -82,10 +84,11 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 
     &::after {
       content: "⛶";
-      color: var(--accent, #06b6d4);
+      color: var(--accent);
       font-size: 1.8rem;
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
     }
@@ -96,6 +99,7 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.92);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,7 +113,7 @@
     object-fit: contain;
     border-radius: 0.75rem;
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    border: 1px solid rgba($accent, 0.2);
   }
 }
 
@@ -127,15 +131,6 @@
       max-width: calc(100% - 1.5rem);
       max-height: calc(100% - 1.5rem);
     }
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import Chip from "./Chip";
+import Divider from "../Divider";
 import "./skills.scss";
 
 export default function Skills() {
@@ -7,6 +8,7 @@ export default function Skills() {
     { text: "Javascript", image: "javascript.webp" },
     { text: "Typescript", image: "typescript.webp" },
     { text: "React", image: "react.webp" },
+    { text: "PHP", image: "php.webp" },
     { text: "Node.js", image: "nodejs.webp" },
     { text: "MySQL", image: "mysql.webp" },
     { text: "C#", image: "csharp.webp" },
@@ -15,7 +17,6 @@ export default function Skills() {
   ];
 
   const basic = [
-    { text: "PHP", image: "php.webp" },
     { text: "Wordpress", image: "wordpress.webp" },
     { text: "Tailwind CSS", image: "tailwindcss.webp" },
     { text: "Nest.js", image: "nestjs.webp" },
@@ -25,16 +26,30 @@ export default function Skills() {
 
   return (
     <div className="skills">
+      <Divider />
+      <div className="skills__inner">
       <motion.p
+        className="section-title"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
+        <span className="prompt">&gt;&gt;&gt;</span>
         Tech Stack
       </motion.p>
 
-      <div className="skill-group">
+      <div className="skill-frame">
+        <div className="frame-header">
+          <span className="frame-dots">
+            <span className="dot red" />
+            <span className="dot yellow" />
+            <span className="dot green" />
+          </span>
+          <span className="frame-title">proficient.sh</span>
+          <span className="frame-spacer" />
+        </div>
+        <div className="frame-body">
         <motion.div
           className="group-label"
           initial={{ opacity: 0, x: -12 }}
@@ -58,9 +73,22 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
+        </div>
       </div>
 
-      <div className="skill-group">
+      <div className="connector-line" />
+
+      <div className="skill-frame">
+        <div className="frame-header">
+          <span className="frame-dots">
+            <span className="dot red" />
+            <span className="dot yellow" />
+            <span className="dot green" />
+          </span>
+          <span className="frame-title">familiar.sh</span>
+          <span className="frame-spacer" />
+        </div>
+        <div className="frame-body">
         <motion.div
           className="group-label"
           initial={{ opacity: 0, x: -12 }}
@@ -84,6 +112,8 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
+        </div>
+      </div>
       </div>
     </div>
   );

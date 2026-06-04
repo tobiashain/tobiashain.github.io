@@ -1,3 +1,5 @@
+@use "../_vars" as *;
+
 .particles {
   position: absolute;
   inset: 0;
@@ -8,6 +10,6 @@
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: #3b82f6;
-  box-shadow: 0 0 4px rgba(59, 130, 246, 0.6);
+  background: $accent;
+  box-shadow: 0 0 4px rgba($accent, 0.6);
 }

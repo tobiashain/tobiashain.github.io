@@ -16,7 +16,7 @@ export function AnimatedWord({
           key={i}
           style={{
             display: "inline-block",
-            background: "linear-gradient(90deg, #ffffff 20%, #8da5c5 70%)",
+            background: "linear-gradient(90deg, #ffffff 20%, var(--caret) 70%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

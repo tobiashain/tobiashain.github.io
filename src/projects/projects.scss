@@ -1,11 +1,34 @@
+@use "../_vars" as *;
+@use "../textures.scss" as *;
+
 .projects {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+
+  @include section-texture(48px);
+
+  &__inner {
+    width: min(1000px, 90%);
+    margin: 0 auto;
+    padding: 2rem 0 4rem 0;
+  }
+
   .section-header {
     margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
 
-    p {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
+    .prompt {
+      font-family: "Courier New", "Consolas", monospace;
+      color: var(--amber);
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1;
     }
   }
 
@@ -31,7 +54,7 @@
     &:hover {
       border-color: var(--accent);
       transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+      box-shadow: 0 8px 32px rgba($accent, 0.1);
 
       .image img {
         transform: scale(1.04);
@@ -84,6 +107,13 @@
       border-color 0.2s ease;
     white-space: nowrap;
     flex-shrink: 0;
+
+    .discover-prompt {
+      color: var(--amber);
+      font-family: "Courier New", "Consolas", monospace;
+      font-weight: 700;
+      margin-right: 0.3rem;
+    }
   }
 
   .subtitle {
@@ -176,6 +206,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,9 +221,8 @@
     max-height: 90vh;
     overflow-y: auto;
     border-radius: 1.5rem;
-    background: var(--main-background, #0b1020);
+    background: var(--main-background);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    position: relative;
 
     .window-project {
       height: auto;
@@ -217,7 +247,6 @@
     cursor: pointer;
     font-size: 1.2rem;
     transition: all 0.2s;
-    z-index: 10;
 
     &:hover {
       background: rgba(255, 255, 255, 0.2);
@@ -226,19 +255,18 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 768px) {
   .projects {
     .projects-container {
       grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      font-size: 1.25rem;
+
+      .prompt {
+        font-size: 1rem;
+      }
     }
   }
 

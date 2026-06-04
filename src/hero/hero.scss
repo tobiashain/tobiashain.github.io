@@ -1,3 +1,5 @@
+@use "../_vars" as *;
+@use "../textures.scss" as *;
 @use "./particles.scss";
 @use "./waveDivider.scss";
 @use "./tobiOS.scss";
@@ -12,13 +14,15 @@
   position: relative;
   overflow: hidden;
 
-  background: radial-gradient(circle at 50% 0%, #1e3a5f 0%, #0a1628 70%);
+  background: radial-gradient(circle at 50% 0%, $dark-blue 0%, var(--bg-dark) 70%);
+
+  @include texture-overlay;
 
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 0%, #1f2937 0%, #0f172a 70%);
+    background: radial-gradient(circle at 50% 0%, var(--card) 0%, var(--bg) 70%);
     animation: breathe 8s ease-in-out infinite;
     pointer-events: none;
     z-index: 0;
@@ -82,9 +86,9 @@
     gap: 0.45rem;
     font-size: 0.75rem;
     font-weight: 500;
-    color: #4ade80;
-    background: rgba(74, 222, 128, 0.08);
-    border: 1px solid rgba(74, 222, 128, 0.2);
+    color: var(--green);
+    background: rgba($green, 0.08);
+    border: 1px solid rgba($green, 0.2);
     border-radius: 999px;
     padding: 0.2rem 0.65rem;
     letter-spacing: 0.03em;
@@ -93,7 +97,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #4ade80;
+      background: var(--green);
       flex-shrink: 0;
       animation: pulse 2.2s ease-in-out infinite;
     }
@@ -129,7 +133,7 @@
     display: inline-block;
     width: 3px;
     height: 0.85em;
-    background: #8da5c5;
+    background: var(--caret);
     margin-left: 6px;
     vertical-align: middle;
     border-radius: 1px;
