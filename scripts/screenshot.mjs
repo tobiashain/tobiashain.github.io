@@ -1,27 +1,39 @@
 import { chromium } from "playwright";
+import { mkdir } from "fs/promises";
+import { existsSync } from "fs";
+
+const SECTIONS = [
+  { name: "01-hero", scrollToTop: true },
+  { name: "02-tobios", selector: "#tobiOS" },
+  { name: "03-experience", selector: ".career" },
+  { name: "04-tech-stack", selector: ".skills" },
+  { name: "05-projects", selector: ".projects" },
+  { name: "06-contact", selector: ".cta" },
+];
+
+if (!existsSync("screenshots")) {
+  await mkdir("screenshots");
+}
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-await page.goto("http://127.0.0.1:5173", { waitUntil: "networkidle" });
+await page.goto("http://localhost:5173", { waitUntil: "networkidle" });
 
-// Slow scroll to bottom to trigger all whileInView animations
-await page.evaluate(async () => {
-  const scrollHeight = document.body.scrollHeight;
-  const viewportHeight = window.innerHeight;
-  const steps = Math.ceil(scrollHeight / 200);
-  
-  for (let i = 0; i <= steps; i++) {
-    window.scrollTo(0, i * 200);
-    await new Promise(r => setTimeout(r, 150));
+for (const section of SECTIONS) {
+  if (section.scrollToTop) {
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
+  } else {
+    await page.evaluate((sel) => {
+      const el = document.querySelector(sel);
+      if (el) el.scrollIntoView({ block: "start", behavior: "instant" });
+    }, section.selector);
   }
-  
-  // Stay at bottom briefly
-  await new Promise(r => setTimeout(r, 500));
-});
 
-await page.waitForTimeout(1000);
+  await page.waitForTimeout(3000);
 
-// Take full-page screenshot (shows entire page regardless of scroll position)
-await page.screenshot({ path: "screenshot.png", fullPage: true });
-console.log("Screenshot saved to screenshot.png");
+  const path = `screenshots/${section.name}.png`;
+  await page.screenshot({ path });
+  console.log(`Saved ${path}`);
+}
+
 await browser.close();
